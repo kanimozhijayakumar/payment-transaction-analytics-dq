@@ -13,6 +13,8 @@ The project demonstrates source-to-warehouse ETL, dimensional modelling, transac
 The platform follows this end-to-end data flow:
 
 ````markdown
+
+```text
                   Payment Transaction Analytics Platform
 
  MariaDB / Source Database
@@ -552,28 +554,8 @@ MIT — see [LICENSE](LICENSE).
 
 ````
 
-### One important thing
-
-Your **three images are already in `docs/`**, based on the GitHub structure you showed:
-
 ```text
-docs/
-├── architecture.png
-├── Payment Transaction Analytics Dashboard.png
-└── Payment Transaction Data Quality Dashboard.png
-````
 
-So these three Markdown lines are the important ones:
-
-```markdown
-![Payment Transaction Analytics Platform Architecture](docs/architecture.png)
-```
-
-```markdown
-![Payment Transaction Analytics Dashboard](docs/Payment%20Transaction%20Analytics%20Dashboard.png)
-```
-
-```markdown
 ![Payment Transaction Data Quality Dashboard](docs/Payment%20Transaction%20Data%20Quality%20Dashboard.png)
 ```
 
