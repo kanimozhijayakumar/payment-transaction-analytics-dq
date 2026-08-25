@@ -627,10 +627,8 @@ Before sharing or deploying the project, review:
 * Connection credentials
 
 ---
-
 ## License
 
 MIT License.
 
 See the `LICENSE` file for details.
-````
