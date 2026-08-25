@@ -6,6 +6,7 @@ A containerized end-to-end data engineering project that implements a payment tr
 The project demonstrates source-to-warehouse ETL, dimensional modelling, fact and dimension tables, data quality validation, and business analytics through an interactive dashboard.
 
 ---
+````markdown
 
 ## Architecture
 
