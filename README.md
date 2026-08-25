@@ -1,4 +1,3 @@
-````markdown
 # Payment Transaction Analytics & Data Quality Platform
 
 A containerized end-to-end data engineering project that implements a payment transaction analytics platform using **MariaDB, Apache Hop, PostgreSQL, Docker, and Metabase**.
