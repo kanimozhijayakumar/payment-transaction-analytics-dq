@@ -1,0 +1,201 @@
+customer_id,customer_name,email,city,state_code,risk_segment,created_at,updated_at
+1,Mateo Johnson,mateo.johnson1@example.com,Seattle,WA,STANDARD,2024-03-26 00:00:00,2024-07-29 00:00:00
+2,Noah Johnson,noah.johnson2@example.com,Austin,TX,STANDARD,2023-05-08 00:00:00,2023-12-10 00:00:00
+3,Ava Johnson,ava.johnson3@example.com,Miami,FL,MEDIUM,2024-05-08 00:00:00,2025-01-21 00:00:00
+4,Ava Anderson,ava.anderson4@example.com,Miami,FL,MEDIUM,2023-03-08 00:00:00,2024-03-01 00:00:00
+5,Ethan Garcia,ethan.garcia5@example.com,Phoenix,AZ,STANDARD,2023-05-09 00:00:00,2023-09-28 00:00:00
+6,Noah Wilson,noah.wilson6@example.com,Denver,CO,STANDARD,2024-03-23 00:00:00,2024-06-10 00:00:00
+7,Mia Johnson,mia.johnson7@example.com,Austin,TX,STANDARD,2023-12-09 00:00:00,2024-01-27 00:00:00
+8,Mia Taylor,mia.taylor8@example.com,Boston,MA,LOW,2024-11-18 00:00:00,2025-11-26 00:00:00
+9,Sophia Johnson,sophia.johnson9@example.com,San Jose,CA,STANDARD,2024-10-13 00:00:00,2025-07-22 00:00:00
+10,Mateo Taylor,mateo.taylor10@example.com,Denver,CO,HIGH,2023-05-21 00:00:00,2023-08-27 00:00:00
+11,Liam Smith,liam.smith11@example.com,Miami,FL,STANDARD,2024-03-11 00:00:00,2024-04-20 00:00:00
+12,Liam Wilson,liam.wilson12@example.com,Boston,MA,STANDARD,2023-09-25 00:00:00,2024-08-15 00:00:00
+13,Noah Davis,noah.davis13@example.com,Denver,CO,STANDARD,2024-06-01 00:00:00,2025-05-10 00:00:00
+14,Aria Johnson,aria.johnson14@example.com,Chicago,IL,STANDARD,2023-07-05 00:00:00,2024-07-12 00:00:00
+15,Noah Martinez,noah.martinez15@example.com,San Jose,CA,HIGH,2024-03-31 00:00:00,2025-07-17 00:00:00
+16,Aria Anderson,aria.anderson16@example.com,Miami,FL,STANDARD,2023-01-31 00:00:00,2023-07-16 00:00:00
+17,Emma Smith,emma.smith17@example.com,Denver,CO,STANDARD,2023-11-18 00:00:00,2024-04-03 00:00:00
+18,Emma Taylor,emma.taylor18@example.com,Denver,CO,LOW,2024-05-29 00:00:00,2025-04-29 00:00:00
+19,Ethan Martinez,ethan.martinez19@example.com,Chicago,IL,STANDARD,2024-04-05 00:00:00,2024-06-15 00:00:00
+20,Aria Anderson,aria.anderson20@example.com,Boston,MA,MEDIUM,2023-05-14 00:00:00,2023-12-19 00:00:00
+21,Ethan Davis,ethan.davis21@example.com,Miami,FL,LOW,2024-08-13 00:00:00,2025-04-30 00:00:00
+22,Liam Smith,liam.smith22@example.com,Austin,TX,STANDARD,2024-07-29 00:00:00,2025-06-15 00:00:00
+23,Mateo Wilson,mateo.wilson23@example.com,Austin,TX,MEDIUM,2023-12-04 00:00:00,2024-06-16 00:00:00
+24,Lucas Anderson,lucas.anderson24@example.com,Boston,MA,STANDARD,2023-06-15 00:00:00,2024-08-28 00:00:00
+25,Mateo Johnson,mateo.johnson25@example.com,Boston,MA,STANDARD,2023-03-17 00:00:00,2023-09-07 00:00:00
+26,Olivia Wilson,olivia.wilson26@example.com,Chicago,IL,HIGH,2023-09-25 00:00:00,2023-09-26 00:00:00
+27,Aria Miller,aria.miller27@example.com,Chicago,IL,STANDARD,2023-08-01 00:00:00,2024-11-10 00:00:00
+28,Mateo Miller,mateo.miller28@example.com,Miami,FL,STANDARD,2024-07-29 00:00:00,2025-02-05 00:00:00
+29,Sophia Anderson,sophia.anderson29@example.com,Seattle,WA,LOW,2023-04-29 00:00:00,2023-10-11 00:00:00
+30,Ava Johnson,ava.johnson30@example.com,Denver,CO,STANDARD,2024-02-22 00:00:00,2024-06-23 00:00:00
+31,Emma Taylor,emma.taylor31@example.com,Austin,TX,LOW,2024-10-06 00:00:00,2025-10-15 00:00:00
+32,Liam Anderson,liam.anderson32@example.com,Chicago,IL,LOW,2024-08-23 00:00:00,2025-07-26 00:00:00
+33,Sophia Brown,sophia.brown33@example.com,Boston,MA,MEDIUM,2023-07-11 00:00:00,2024-09-29 00:00:00
+34,Ethan Garcia,ethan.garcia34@example.com,Miami,FL,LOW,2023-01-02 00:00:00,2023-06-10 00:00:00
+35,Mateo Davis,mateo.davis35@example.com,Phoenix,AZ,STANDARD,2023-07-22 00:00:00,2024-03-09 00:00:00
+36,Emma Garcia,emma.garcia36@example.com,Austin,TX,MEDIUM,2024-01-21 00:00:00,2024-01-31 00:00:00
+37,Sophia Garcia,sophia.garcia37@example.com,Miami,FL,HIGH,2024-12-25 00:00:00,2025-01-30 00:00:00
+38,Mateo Smith,mateo.smith38@example.com,Miami,FL,STANDARD,2024-10-24 00:00:00,2026-01-30 00:00:00
+39,Mia Johnson,mia.johnson39@example.com,Miami,FL,LOW,2024-03-22 00:00:00,2025-02-27 00:00:00
+40,Emma Anderson,emma.anderson40@example.com,Chicago,IL,LOW,2023-05-28 00:00:00,2024-03-18 00:00:00
+41,Emma Martinez,emma.martinez41@example.com,San Jose,CA,STANDARD,2024-06-21 00:00:00,2024-08-08 00:00:00
+42,Mateo Wilson,mateo.wilson42@example.com,Denver,CO,LOW,2023-10-26 00:00:00,2024-05-23 00:00:00
+43,Aria Smith,aria.smith43@example.com,Austin,TX,HIGH,2024-10-31 00:00:00,2025-05-25 00:00:00
+44,Mia Johnson,mia.johnson44@example.com,Miami,FL,MEDIUM,2024-06-19 00:00:00,2024-09-24 00:00:00
+45,Lucas Brown,lucas.brown45@example.com,San Jose,CA,LOW,2024-06-28 00:00:00,2024-11-17 00:00:00
+46,Emma Johnson,emma.johnson46@example.com,Phoenix,AZ,STANDARD,2023-06-18 00:00:00,2023-08-07 00:00:00
+47,Mateo Anderson,mateo.anderson47@example.com,Seattle,WA,STANDARD,2024-09-28 00:00:00,2026-01-15 00:00:00
+48,Noah Wilson,noah.wilson48@example.com,Phoenix,AZ,LOW,2023-08-28 00:00:00,2023-12-15 00:00:00
+49,Ava Brown,ava.brown49@example.com,San Jose,CA,STANDARD,2024-12-30 00:00:00,2025-07-17 00:00:00
+50,Lucas Miller,lucas.miller50@example.com,San Jose,CA,HIGH,2023-01-19 00:00:00,2024-05-23 00:00:00
+51,Sophia Martinez,sophia.martinez51@example.com,Chicago,IL,STANDARD,2024-06-21 00:00:00,2024-11-19 00:00:00
+52,Ava Taylor,ava.taylor52@example.com,Seattle,WA,STANDARD,2024-02-15 00:00:00,2024-03-15 00:00:00
+53,Amelia Martinez,amelia.martinez53@example.com,Chicago,IL,MEDIUM,2024-11-04 00:00:00,2026-03-10 00:00:00
+54,Liam Brown,liam.brown54@example.com,Austin,TX,HIGH,2023-05-03 00:00:00,2023-06-06 00:00:00
+55,Emma Wilson,emma.wilson55@example.com,Austin,TX,MEDIUM,2023-05-29 00:00:00,2023-10-02 00:00:00
+56,Amelia Smith,amelia.smith56@example.com,Austin,TX,MEDIUM,2023-10-30 00:00:00,2024-09-30 00:00:00
+57,Amelia Anderson,amelia.anderson57@example.com,Denver,CO,HIGH,2024-04-09 00:00:00,2024-07-22 00:00:00
+58,Aria Davis,aria.davis58@example.com,Miami,FL,STANDARD,2024-04-05 00:00:00,2024-10-24 00:00:00
+59,Mateo Miller,mateo.miller59@example.com,Phoenix,AZ,STANDARD,2024-02-13 00:00:00,2025-06-02 00:00:00
+60,Ava Martinez,ava.martinez60@example.com,Austin,TX,STANDARD,2024-10-18 00:00:00,2025-07-20 00:00:00
+61,Sophia Miller,sophia.miller61@example.com,Chicago,IL,STANDARD,2024-01-10 00:00:00,2025-04-05 00:00:00
+62,Emma Davis,emma.davis62@example.com,Boston,MA,MEDIUM,2024-07-24 00:00:00,2025-03-05 00:00:00
+63,Aria Miller,aria.miller63@example.com,Seattle,WA,MEDIUM,2023-02-18 00:00:00,2024-04-11 00:00:00
+64,Olivia Johnson,olivia.johnson64@example.com,Chicago,IL,STANDARD,2024-04-06 00:00:00,2024-06-04 00:00:00
+65,Aria Anderson,aria.anderson65@example.com,Chicago,IL,MEDIUM,2024-03-29 00:00:00,2024-08-20 00:00:00
+66,Emma Davis,emma.davis66@example.com,Miami,FL,STANDARD,2023-01-29 00:00:00,2023-12-19 00:00:00
+67,Sophia Martinez,sophia.martinez67@example.com,Boston,MA,HIGH,2024-11-10 00:00:00,2024-12-27 00:00:00
+68,Ethan Miller,ethan.miller68@example.com,Seattle,WA,STANDARD,2024-12-29 00:00:00,2025-06-17 00:00:00
+69,Mateo Miller,mateo.miller69@example.com,Chicago,IL,HIGH,2023-10-07 00:00:00,2024-07-15 00:00:00
+70,Ethan Anderson,ethan.anderson70@example.com,Seattle,WA,HIGH,2024-09-09 00:00:00,2024-10-17 00:00:00
+71,Noah Anderson,noah.anderson71@example.com,Seattle,WA,MEDIUM,2023-12-20 00:00:00,2024-10-13 00:00:00
+72,Noah Wilson,noah.wilson72@example.com,Chicago,IL,STANDARD,2024-11-20 00:00:00,2025-04-26 00:00:00
+73,Ava Davis,ava.davis73@example.com,Miami,FL,HIGH,2023-02-03 00:00:00,2023-06-10 00:00:00
+74,Liam Davis,liam.davis74@example.com,San Jose,CA,STANDARD,2023-04-07 00:00:00,2024-04-24 00:00:00
+75,Emma Brown,emma.brown75@example.com,Chicago,IL,STANDARD,2023-11-06 00:00:00,2023-11-18 00:00:00
+76,Aria Davis,aria.davis76@example.com,San Jose,CA,HIGH,2023-02-16 00:00:00,2024-05-03 00:00:00
+77,Emma Miller,emma.miller77@example.com,Chicago,IL,LOW,2023-01-14 00:00:00,2023-03-10 00:00:00
+78,Ava Martinez,ava.martinez78@example.com,Miami,FL,LOW,2024-06-11 00:00:00,2025-08-03 00:00:00
+79,Mia Miller,mia.miller79@example.com,Miami,FL,HIGH,2024-05-18 00:00:00,2024-05-30 00:00:00
+80,Emma Wilson,emma.wilson80@example.com,Denver,CO,STANDARD,2024-03-22 00:00:00,2025-06-07 00:00:00
+81,Olivia Davis,olivia.davis81@example.com,San Jose,CA,MEDIUM,2023-02-06 00:00:00,2024-04-12 00:00:00
+82,Mia Smith,mia.smith82@example.com,Austin,TX,MEDIUM,2024-04-09 00:00:00,2024-07-09 00:00:00
+83,Olivia Smith,olivia.smith83@example.com,Austin,TX,STANDARD,2023-05-02 00:00:00,2023-12-10 00:00:00
+84,Aria Davis,aria.davis84@example.com,San Jose,CA,STANDARD,2023-04-22 00:00:00,2024-01-08 00:00:00
+85,Ethan Taylor,ethan.taylor85@example.com,Miami,FL,HIGH,2024-04-16 00:00:00,2024-05-08 00:00:00
+86,Ethan Smith,ethan.smith86@example.com,Miami,FL,STANDARD,2023-12-26 00:00:00,2024-08-02 00:00:00
+87,Mateo Davis,mateo.davis87@example.com,Denver,CO,STANDARD,2023-02-22 00:00:00,2024-05-01 00:00:00
+88,Aria Miller,aria.miller88@example.com,Boston,MA,STANDARD,2023-02-19 00:00:00,2023-09-16 00:00:00
+89,Ethan Miller,ethan.miller89@example.com,Chicago,IL,HIGH,2024-06-19 00:00:00,2025-01-20 00:00:00
+90,Ethan Brown,ethan.brown90@example.com,Boston,MA,STANDARD,2023-11-13 00:00:00,2024-08-19 00:00:00
+91,Olivia Miller,olivia.miller91@example.com,Miami,FL,MEDIUM,2023-10-19 00:00:00,2024-11-24 00:00:00
+92,Amelia Davis,amelia.davis92@example.com,Phoenix,AZ,HIGH,2023-10-07 00:00:00,2024-05-20 00:00:00
+93,Emma Anderson,emma.anderson93@example.com,Phoenix,AZ,STANDARD,2024-07-12 00:00:00,2025-06-14 00:00:00
+94,Olivia Anderson,olivia.anderson94@example.com,Denver,CO,STANDARD,2024-09-28 00:00:00,2025-11-21 00:00:00
+95,Mateo Miller,mateo.miller95@example.com,Miami,FL,STANDARD,2024-06-12 00:00:00,2024-08-26 00:00:00
+96,Ava Garcia,ava.garcia96@example.com,Phoenix,AZ,STANDARD,2023-04-17 00:00:00,2024-06-25 00:00:00
+97,Lucas Wilson,lucas.wilson97@example.com,Miami,FL,LOW,2023-01-19 00:00:00,2023-08-03 00:00:00
+98,Ethan Garcia,ethan.garcia98@example.com,Chicago,IL,STANDARD,2023-03-02 00:00:00,2024-02-17 00:00:00
+99,Liam Wilson,liam.wilson99@example.com,Miami,FL,HIGH,2024-07-05 00:00:00,2025-08-20 00:00:00
+100,Sophia Martinez,sophia.martinez100@example.com,Seattle,WA,STANDARD,2023-06-11 00:00:00,2023-10-16 00:00:00
+101,Lucas Brown,lucas.brown101@example.com,Phoenix,AZ,MEDIUM,2023-02-18 00:00:00,2023-11-16 00:00:00
+102,Amelia Davis,amelia.davis102@example.com,Phoenix,AZ,HIGH,2023-04-15 00:00:00,2024-06-05 00:00:00
+103,Sophia Wilson,sophia.wilson103@example.com,Phoenix,AZ,LOW,2024-07-23 00:00:00,2025-08-07 00:00:00
+104,Lucas Miller,lucas.miller104@example.com,Miami,FL,MEDIUM,2023-03-21 00:00:00,2023-08-09 00:00:00
+105,Lucas Garcia,lucas.garcia105@example.com,Boston,MA,HIGH,2023-10-09 00:00:00,2023-11-17 00:00:00
+106,Olivia Garcia,olivia.garcia106@example.com,Boston,MA,MEDIUM,2024-01-24 00:00:00,2024-07-05 00:00:00
+107,Liam Brown,liam.brown107@example.com,Chicago,IL,HIGH,2024-05-10 00:00:00,2024-11-22 00:00:00
+108,Noah Garcia,noah.garcia108@example.com,Austin,TX,STANDARD,2023-11-04 00:00:00,2024-05-30 00:00:00
+109,Sophia Martinez,sophia.martinez109@example.com,San Jose,CA,LOW,2024-10-30 00:00:00,2025-02-12 00:00:00
+110,Ethan Taylor,ethan.taylor110@example.com,Seattle,WA,LOW,2023-05-23 00:00:00,2023-12-03 00:00:00
+111,Ava Davis,ava.davis111@example.com,Boston,MA,LOW,2023-11-29 00:00:00,2025-02-07 00:00:00
+112,Sophia Anderson,sophia.anderson112@example.com,Miami,FL,STANDARD,2023-08-21 00:00:00,2023-12-11 00:00:00
+113,Ethan Martinez,ethan.martinez113@example.com,Seattle,WA,HIGH,2023-11-30 00:00:00,2024-05-20 00:00:00
+114,Mateo Wilson,mateo.wilson114@example.com,Chicago,IL,STANDARD,2023-09-11 00:00:00,2024-12-24 00:00:00
+115,Amelia Anderson,amelia.anderson115@example.com,Seattle,WA,MEDIUM,2023-11-25 00:00:00,2024-09-23 00:00:00
+116,Mateo Smith,mateo.smith116@example.com,Austin,TX,STANDARD,2023-03-15 00:00:00,2023-10-20 00:00:00
+117,Lucas Brown,lucas.brown117@example.com,Seattle,WA,STANDARD,2024-04-10 00:00:00,2024-10-21 00:00:00
+118,Emma Martinez,emma.martinez118@example.com,Denver,CO,LOW,2024-01-22 00:00:00,2025-02-14 00:00:00
+119,Olivia Wilson,olivia.wilson119@example.com,Boston,MA,STANDARD,2024-10-10 00:00:00,2025-06-07 00:00:00
+120,Aria Anderson,aria.anderson120@example.com,Seattle,WA,HIGH,2024-01-09 00:00:00,2024-05-02 00:00:00
+121,Liam Smith,liam.smith121@example.com,Seattle,WA,STANDARD,2024-04-23 00:00:00,2024-08-03 00:00:00
+122,Amelia Brown,amelia.brown122@example.com,Miami,FL,HIGH,2024-08-25 00:00:00,2025-04-24 00:00:00
+123,Liam Taylor,liam.taylor123@example.com,Miami,FL,STANDARD,2023-09-13 00:00:00,2024-09-05 00:00:00
+124,Mia Brown,mia.brown124@example.com,Austin,TX,STANDARD,2024-07-18 00:00:00,2025-11-23 00:00:00
+125,Liam Taylor,liam.taylor125@example.com,Seattle,WA,HIGH,2024-02-17 00:00:00,2024-12-07 00:00:00
+126,Ethan Wilson,ethan.wilson126@example.com,Miami,FL,HIGH,2024-10-16 00:00:00,2025-08-15 00:00:00
+127,Mateo Garcia,mateo.garcia127@example.com,Austin,TX,STANDARD,2023-01-19 00:00:00,2024-02-18 00:00:00
+128,Mateo Taylor,mateo.taylor128@example.com,Austin,TX,STANDARD,2023-06-02 00:00:00,2024-07-06 00:00:00
+129,Mia Anderson,mia.anderson129@example.com,San Jose,CA,STANDARD,2023-02-24 00:00:00,2023-09-01 00:00:00
+130,Sophia Davis,sophia.davis130@example.com,Seattle,WA,LOW,2023-10-29 00:00:00,2024-12-23 00:00:00
+131,Liam Wilson,liam.wilson131@example.com,Denver,CO,LOW,2023-03-23 00:00:00,2024-06-21 00:00:00
+132,Aria Brown,aria.brown132@example.com,San Jose,CA,MEDIUM,2024-07-05 00:00:00,2025-07-15 00:00:00
+133,Mateo Miller,mateo.miller133@example.com,Phoenix,AZ,HIGH,2023-09-13 00:00:00,2024-04-23 00:00:00
+134,Amelia Miller,amelia.miller134@example.com,Denver,CO,STANDARD,2024-04-25 00:00:00,2025-06-24 00:00:00
+135,Olivia Martinez,olivia.martinez135@example.com,Miami,FL,MEDIUM,2023-09-14 00:00:00,2024-07-01 00:00:00
+136,Mateo Wilson,mateo.wilson136@example.com,Denver,CO,STANDARD,2024-12-03 00:00:00,2025-08-13 00:00:00
+137,Noah Martinez,noah.martinez137@example.com,Miami,FL,STANDARD,2024-01-04 00:00:00,2025-02-15 00:00:00
+138,Mia Miller,mia.miller138@example.com,Boston,MA,MEDIUM,2023-06-12 00:00:00,2023-06-17 00:00:00
+139,Emma Johnson,emma.johnson139@example.com,Miami,FL,MEDIUM,2023-11-12 00:00:00,2024-07-19 00:00:00
+140,Emma Martinez,emma.martinez140@example.com,Phoenix,AZ,STANDARD,2023-10-01 00:00:00,2024-11-09 00:00:00
+141,Liam Miller,liam.miller141@example.com,Miami,FL,STANDARD,2023-11-14 00:00:00,2024-11-02 00:00:00
+142,Olivia Taylor,olivia.taylor142@example.com,Denver,CO,MEDIUM,2023-09-05 00:00:00,2024-06-14 00:00:00
+143,Mia Wilson,mia.wilson143@example.com,Denver,CO,LOW,2024-01-07 00:00:00,2024-12-31 00:00:00
+144,Olivia Miller,olivia.miller144@example.com,Boston,MA,HIGH,2024-05-10 00:00:00,2024-07-10 00:00:00
+145,Emma Davis,emma.davis145@example.com,Austin,TX,HIGH,2023-07-03 00:00:00,2024-10-31 00:00:00
+146,Noah Garcia,noah.garcia146@example.com,Miami,FL,HIGH,2023-08-25 00:00:00,2024-01-13 00:00:00
+147,Amelia Anderson,amelia.anderson147@example.com,Boston,MA,STANDARD,2024-09-21 00:00:00,2025-11-21 00:00:00
+148,Olivia Garcia,olivia.garcia148@example.com,Denver,CO,STANDARD,2024-07-02 00:00:00,2024-12-03 00:00:00
+149,Aria Anderson,aria.anderson149@example.com,Chicago,IL,STANDARD,2024-03-27 00:00:00,2024-04-19 00:00:00
+150,Sophia Miller,sophia.miller150@example.com,Chicago,IL,LOW,2023-03-20 00:00:00,2024-06-06 00:00:00
+151,Liam Smith,liam.smith151@example.com,Boston,MA,LOW,2023-09-09 00:00:00,2024-05-11 00:00:00
+152,Mia Brown,mia.brown152@example.com,Seattle,WA,LOW,2024-04-18 00:00:00,2025-08-12 00:00:00
+153,Liam Johnson,liam.johnson153@example.com,San Jose,CA,MEDIUM,2023-08-17 00:00:00,2023-09-23 00:00:00
+154,Mateo Smith,mateo.smith154@example.com,Chicago,IL,MEDIUM,2024-08-02 00:00:00,2025-09-21 00:00:00
+155,Olivia Johnson,olivia.johnson155@example.com,Miami,FL,LOW,2024-09-02 00:00:00,2025-06-14 00:00:00
+156,Amelia Taylor,amelia.taylor156@example.com,Miami,FL,LOW,2023-07-16 00:00:00,2024-01-26 00:00:00
+157,Lucas Miller,lucas.miller157@example.com,San Jose,CA,MEDIUM,2024-02-24 00:00:00,2024-12-11 00:00:00
+158,Ava Taylor,ava.taylor158@example.com,Austin,TX,STANDARD,2024-06-03 00:00:00,2025-04-19 00:00:00
+159,Olivia Johnson,olivia.johnson159@example.com,Chicago,IL,MEDIUM,2024-05-01 00:00:00,2024-07-28 00:00:00
+160,Liam Brown,liam.brown160@example.com,Seattle,WA,HIGH,2023-11-10 00:00:00,2024-06-27 00:00:00
+161,Amelia Martinez,amelia.martinez161@example.com,Boston,MA,STANDARD,2024-11-29 00:00:00,2025-03-27 00:00:00
+162,Aria Miller,aria.miller162@example.com,Phoenix,AZ,STANDARD,2024-10-21 00:00:00,2025-10-07 00:00:00
+163,Olivia Taylor,olivia.taylor163@example.com,Miami,FL,MEDIUM,2023-10-24 00:00:00,2023-12-21 00:00:00
+164,Emma Brown,emma.brown164@example.com,Boston,MA,STANDARD,2024-08-09 00:00:00,2024-09-14 00:00:00
+165,Noah Miller,noah.miller165@example.com,Boston,MA,LOW,2023-10-10 00:00:00,2023-12-12 00:00:00
+166,Aria Miller,aria.miller166@example.com,San Jose,CA,MEDIUM,2024-03-29 00:00:00,2024-12-10 00:00:00
+167,Lucas Martinez,lucas.martinez167@example.com,Austin,TX,LOW,2023-04-30 00:00:00,2023-05-20 00:00:00
+168,Aria Davis,aria.davis168@example.com,Boston,MA,STANDARD,2024-12-06 00:00:00,2025-01-21 00:00:00
+169,Mateo Taylor,mateo.taylor169@example.com,Seattle,WA,STANDARD,2023-02-13 00:00:00,2024-04-08 00:00:00
+170,Amelia Smith,amelia.smith170@example.com,Chicago,IL,HIGH,2023-09-08 00:00:00,2024-05-30 00:00:00
+171,Lucas Miller,lucas.miller171@example.com,Chicago,IL,HIGH,2023-05-13 00:00:00,2023-12-22 00:00:00
+172,Lucas Johnson,lucas.johnson172@example.com,Phoenix,AZ,STANDARD,2024-01-11 00:00:00,2024-08-07 00:00:00
+173,Mia Johnson,mia.johnson173@example.com,Chicago,IL,HIGH,2024-01-30 00:00:00,2024-08-27 00:00:00
+174,Lucas Miller,lucas.miller174@example.com,San Jose,CA,LOW,2023-06-18 00:00:00,2023-07-06 00:00:00
+175,Liam Davis,liam.davis175@example.com,Boston,MA,LOW,2024-02-05 00:00:00,2024-04-04 00:00:00
+176,Sophia Smith,sophia.smith176@example.com,Phoenix,AZ,STANDARD,2023-11-05 00:00:00,2023-12-02 00:00:00
+177,Sophia Davis,sophia.davis177@example.com,Phoenix,AZ,STANDARD,2023-04-02 00:00:00,2023-11-14 00:00:00
+178,Emma Miller,emma.miller178@example.com,Chicago,IL,HIGH,2024-03-13 00:00:00,2024-10-23 00:00:00
+179,Lucas Johnson,lucas.johnson179@example.com,Seattle,WA,STANDARD,2023-03-28 00:00:00,2024-02-02 00:00:00
+180,Aria Brown,aria.brown180@example.com,Boston,MA,MEDIUM,2023-06-17 00:00:00,2023-06-24 00:00:00
+181,Ethan Johnson,ethan.johnson181@example.com,Miami,FL,STANDARD,2024-09-07 00:00:00,2025-05-01 00:00:00
+182,Mateo Brown,mateo.brown182@example.com,Phoenix,AZ,HIGH,2024-03-09 00:00:00,2024-11-24 00:00:00
+183,Olivia Wilson,olivia.wilson183@example.com,Phoenix,AZ,LOW,2023-09-06 00:00:00,2024-01-08 00:00:00
+184,Sophia Brown,sophia.brown184@example.com,San Jose,CA,MEDIUM,2024-06-20 00:00:00,2025-10-04 00:00:00
+185,Sophia Brown,sophia.brown185@example.com,Austin,TX,LOW,2024-03-25 00:00:00,2025-04-24 00:00:00
+186,Mia Anderson,mia.anderson186@example.com,Boston,MA,HIGH,2024-12-30 00:00:00,2025-05-23 00:00:00
+187,Olivia Taylor,olivia.taylor187@example.com,Phoenix,AZ,MEDIUM,2024-08-02 00:00:00,2025-03-18 00:00:00
+188,Lucas Davis,lucas.davis188@example.com,Denver,CO,MEDIUM,2023-06-16 00:00:00,2024-07-10 00:00:00
+189,Ethan Martinez,ethan.martinez189@example.com,Denver,CO,STANDARD,2024-06-22 00:00:00,2025-06-14 00:00:00
+190,Amelia Wilson,amelia.wilson190@example.com,Miami,FL,STANDARD,2023-11-08 00:00:00,2023-11-30 00:00:00
+191,Aria Martinez,aria.martinez191@example.com,San Jose,CA,HIGH,2023-12-03 00:00:00,2024-11-06 00:00:00
+192,Noah Martinez,noah.martinez192@example.com,Seattle,WA,MEDIUM,2024-08-25 00:00:00,2025-05-09 00:00:00
+193,Mia Johnson,mia.johnson193@example.com,Phoenix,AZ,LOW,2024-09-21 00:00:00,2025-06-17 00:00:00
+194,Ava Brown,ava.brown194@example.com,San Jose,CA,STANDARD,2023-03-03 00:00:00,2024-07-11 00:00:00
+195,Liam Martinez,liam.martinez195@example.com,Boston,MA,HIGH,2024-01-21 00:00:00,2024-12-05 00:00:00
+196,Ethan Johnson,ethan.johnson196@example.com,Denver,CO,MEDIUM,2023-02-11 00:00:00,2024-04-25 00:00:00
+197,Ethan Davis,ethan.davis197@example.com,Phoenix,AZ,MEDIUM,2023-06-27 00:00:00,2023-07-15 00:00:00
+198,Liam Garcia,liam.garcia198@example.com,Boston,MA,STANDARD,2024-05-14 00:00:00,2025-05-31 00:00:00
+199,Ethan Johnson,ethan.johnson199@example.com,Austin,TX,HIGH,2023-10-05 00:00:00,2023-12-29 00:00:00
+200,Olivia Smith,olivia.smith200@example.com,Seattle,WA,STANDARD,2024-02-04 00:00:00,2025-03-17 00:00:00

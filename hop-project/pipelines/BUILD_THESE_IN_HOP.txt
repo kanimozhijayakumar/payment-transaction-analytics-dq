@@ -1,0 +1,10 @@
+Build from hop-project/README.md:
+- dim_merchant.hpl
+- dim_payment_method.hpl
+- dim_customer_scd2.hpl
+- get_payment_watermark.hpl
+- get_payment_upper_bound.hpl
+- raw_payments_to_minio.hpl
+- fact_payment_transaction.hpl
+- fact_refund.hpl
+- fact_cancellation.hpl

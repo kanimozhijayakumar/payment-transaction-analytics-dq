@@ -1,0 +1,177 @@
+name: payment-analytics-lab
+
+services:
+  mariadb:
+    image: mariadb:11.8
+    container_name: pay-mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_DATABASE: source_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./sql/mariadb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+    networks: [payment-lab]
+
+  postgres:
+    image: postgres:17
+    container_name: pay-postgres-dw
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_BI_USER: ${POSTGRES_BI_USER}
+      POSTGRES_BI_PASSWORD: ${POSTGRES_BI_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/postgres:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+    networks: [payment-lab]
+
+  minio:
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    container_name: pay-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+    networks: [payment-lab]
+
+  minio-init:
+    image: minio/mc:latest
+    container_name: pay-minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set lab http://minio:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD &&
+      mc mb --ignore-existing lab/raw &&
+      mc mb --ignore-existing lab/curated &&
+      mc mb --ignore-existing lab/archive &&
+      mc mb --ignore-existing lab/rejects &&
+      echo 'MinIO buckets ready.'
+      "
+    networks: [payment-lab]
+
+  hop-web:
+    image: apache/hop-web:latest
+    container_name: pay-hop-web
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      HOP_CONFIG_FOLDER: /config
+      HOP_AUDIT_FOLDER: /audit
+      HOP_SHARED_JDBC_FOLDERS: /drivers
+    volumes:
+      - hop_config:/config
+      - hop_audit:/audit
+      - ./hop-project:/files
+      - ./datasets:/datasets
+      - ./drivers:/drivers
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    networks: [payment-lab]
+
+  hop-runner:
+    image: apache/hop:latest
+    container_name: pay-hop-runner
+    profiles: [runner]
+    environment:
+      HOP_CONFIG_FOLDER: /config
+      HOP_AUDIT_FOLDER: /audit
+      HOP_SHARED_JDBC_FOLDERS: /drivers
+    volumes:
+      - hop_config:/config
+      - hop_audit:/audit
+      - ./hop-project:/files
+      - ./datasets:/datasets
+      - ./drivers:/drivers
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    networks: [payment-lab]
+
+  superset:
+    build:
+      context: ./superset
+    container_name: pay-superset
+    restart: unless-stopped
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+      SUPERSET_ADMIN_USER: ${SUPERSET_ADMIN_USER}
+      SUPERSET_ADMIN_PASSWORD: ${SUPERSET_ADMIN_PASSWORD}
+      SUPERSET_ADMIN_EMAIL: ${SUPERSET_ADMIN_EMAIL}
+      SUPERSET_HOME: /app/superset_home
+    ports:
+      - "8088:8088"
+    volumes:
+      - superset_home:/app/superset_home
+    command: >
+      /bin/bash -c "
+      superset db upgrade &&
+      (superset fab create-admin
+        --username $$SUPERSET_ADMIN_USER
+        --firstname Data
+        --lastname Engineer
+        --email $$SUPERSET_ADMIN_EMAIL
+        --password $$SUPERSET_ADMIN_PASSWORD || true) &&
+      superset init &&
+      gunicorn --bind 0.0.0.0:8088 --workers 2 --timeout 120 'superset.app:create_app()'
+      "
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [payment-lab]
+
+networks:
+  payment-lab:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+  postgres_data:
+  minio_data:
+  hop_config:
+  hop_audit:
+  superset_home:

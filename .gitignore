@@ -1,0 +1,15 @@
+.env
+.env.*
+*.env
+.DS_Store
+*.log
+
+# Secrets / credentials
+secrets/
+*.key
+*.pem
+
+# Local/runtime files
+logs/
+tmp/
+target/

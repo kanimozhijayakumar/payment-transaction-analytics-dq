@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline>
+  <info>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <pipeline_type>Normal</pipeline_type>
+    <pipeline_status>-1</pipeline_status>
+    <parameters/>
+    <name>New pipeline</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <created_user>-</created_user>
+    <modified_user>-</modified_user>
+    <created_date>2026/08/11 03:12:30.214</created_date>
+    <modified_date>2026/08/11 03:12:30.214</modified_date>
+  </info>
+  <transform>
+    <type>ExecSql</type>
+    <name>Execute SQL script</name>
+    <connection>lab_dw_postgres</connection>
+    <sql>INSERT INTO dw.dim_date
+(
+    date_key,
+    full_date,
+    year_num,
+    quarter_num,
+    month_num,
+    month_name,
+    day_num,
+    day_name,
+    is_weekend
+)
+SELECT
+    TO_CHAR(d, 'YYYYMMDD')::integer AS date_key,
+    d::date AS full_date,
+    EXTRACT(YEAR FROM d)::smallint AS year_num,
+    EXTRACT(QUARTER FROM d)::smallint AS quarter_num,
+    EXTRACT(MONTH FROM d)::smallint AS month_num,
+    TRIM(TO_CHAR(d, 'Month')) AS month_name,
+    EXTRACT(DAY FROM d)::smallint AS day_num,
+    TRIM(TO_CHAR(d, 'Day')) AS day_name,
+    CASE
+        WHEN EXTRACT(ISODOW FROM d) IN (6, 7) THEN TRUE
+        ELSE FALSE
+    END AS is_weekend
+FROM generate_series(
+    DATE '2020-01-01',
+    DATE '2030-12-31',
+    INTERVAL '1 day'
+) AS g(d)
+WHERE NOT EXISTS
+(
+    SELECT 1
+    FROM dw.dim_date existing
+    WHERE existing.date_key = TO_CHAR(d, 'YYYYMMDD')::integer
+);</sql>
+    <execute_each_row>N</execute_each_row>
+    <update_field/>
+    <insert_field/>
+    <delete_field/>
+    <read_field/>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <set_params>N</set_params>
+    <arguments/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>64</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <order/>
+  <notepads/>
+  <attributes/>
+  <transform_error_handling/>
+</pipeline>
