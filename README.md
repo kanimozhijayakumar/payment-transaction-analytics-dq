@@ -633,7 +633,4 @@ Before sharing or deploying the project, review:
 MIT License.
 
 See the `LICENSE` file for details.
-
 ````
-
-
