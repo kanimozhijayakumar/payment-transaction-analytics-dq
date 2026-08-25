@@ -13,7 +13,7 @@ The project demonstrates source-to-warehouse ETL, dimensional modelling, fact an
 
 The platform follows this end-to-end data flow:
 ````markdown
-```text
+
 MariaDB / Source Database
         |
         v
