@@ -334,53 +334,36 @@ Additional dimensions can be added as the warehouse model is extended.
 ## Repository Structure
 
 ```text
-payment-transaction-analytics-dq/
-│
+
+### If you want it **exactly like the reference**, without showing individual files:
+
+```markdown
+## Repository structure
+
+```text
+.
+├── docker-compose.yml
+├── .gitignore
+├── LICENSE
+├── README.md
 ├── datasets/
 │   ├── generated/
-│   │   ├── cancellations.csv
-│   │   ├── customers.csv
-│   │   ├── merchants.csv
-│   │   ├── payment_methods.csv
-│   │   ├── payment_transactions.csv
-│   │   └── refunds.csv
-│   │
 │   └── README.md
-│
 ├── docs/
 │   ├── MACBOOK_TOP_LEVEL_GUIDE.md
 │   ├── architecture.png
-│   ├── Payment Transaction Analytics Dashboard.png
-│   └── Payment Transaction Data Quality Dashboard.png
-│
+│   └── screenshots/
 ├── drivers/
 │   └── README.md
-│
 ├── hop-project/
 │   ├── pipelines/
 │   ├── workflows/
 │   └── README.md
-│
 ├── scripts/
-│   ├── generate_payment_data.py
-│   ├── mariadb_validation.sql
-│   ├── postgres_validation.sql
-│   └── reconciliation_queries.sql
-│
 ├── sql/
 │   ├── mariadb/
-│   │   └── 01-source-schema.sql
-│   │
 │   └── postgres/
-│       └── 01-warehouse-schema.sql
-│
-├── superset/
-│   └── Dockerfile
-│
-├── docker-compose.yml
-├── .gitignore
-├── LICENSE
-└── README.md
+└── superset/
 ```
 
 ## Run Locally
