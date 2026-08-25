@@ -11,7 +11,7 @@ The project demonstrates source-to-warehouse ETL, dimensional modelling, fact an
 
 ![Payment Transaction Analytics Platform Architecture](docs/architecture.png)
 
-```text
+
                     Payment Transaction Analytics Platform
 
   MariaDB / Source Database
