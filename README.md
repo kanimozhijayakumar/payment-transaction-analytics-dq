@@ -1,367 +1,335 @@
-
 # Payment Transaction Analytics & Data Quality Platform
 
-A containerized end-to-end data engineering project that implements a payment transaction analytics platform using **MariaDB, Apache Hop, PostgreSQL, Docker, and Metabase**.
+A containerized data engineering project that implements an end-to-end payment transaction analytics and data quality platform using **MariaDB, Apache Hop, PostgreSQL, Docker, Python, and Metabase**.
 
-The project demonstrates source-to-warehouse ETL, dimensional modelling, fact and dimension tables, data quality validation, and business analytics through an interactive dashboard.
+The project demonstrates source-to-warehouse ETL, dimensional modelling, transaction fact and dimension tables, data quality validation, SQL-based reconciliation, and business analytics through interactive dashboards.
 
----
+> This repository was developed as a local data-engineering project to demonstrate practical ETL, data warehousing, data quality, validation, and analytics engineering concepts.
 
 ## Architecture
 
 ![Payment Transaction Analytics Platform Architecture](docs/architecture.png)
 
 The platform follows this end-to-end data flow:
-````markdown
 
-MariaDB / Source Database
-        |
-        v
-   Apache Hop
+````markdown
+                  Payment Transaction Analytics Platform
+
+ MariaDB / Source Database
+          |
+          v
+      Apache Hop
  ETL + Transformation
-        |
-        v
-PostgreSQL Data Warehouse
-        |
-        v
+          |
+          v
+ PostgreSQL Data Warehouse
+          |
+          v
  Data Quality Validation
-        |
-        v
-     Metabase
-Analytics Dashboard
+          |
+          v
+       Metabase
+ Business + DQ Analytics
 ````
 
----
+## Local Technology Mapping
 
-## Technology Stack
-
-| Local Component | Purpose                                        |
-| --------------- | ---------------------------------------------- |
-| MariaDB         | Source / OLTP database                         |
-| Apache Hop      | ETL and data transformation                    |
-| PostgreSQL      | Analytical data warehouse                      |
-| Docker Compose  | Containerized service environment              |
-| Metabase        | Business analytics and visualization           |
-| SQL             | Data extraction, transformation and validation |
-| Python          | Supporting data generation / utility scripts   |
-| Git             | Version control                                |
-| GitHub          | Source code repository                         |
-
----
+| Local component | Purpose                                           |
+| --------------- | ------------------------------------------------- |
+| MariaDB         | Source / OLTP transaction database                |
+| Apache Hop      | ETL and workflow orchestration                    |
+| PostgreSQL      | Analytical data warehouse                         |
+| Docker Compose  | Containerized local development environment       |
+| Metabase        | Business intelligence and data-quality dashboards |
+| Python          | Supporting data generation and project utilities  |
+| SQL             | Transformation, validation, and reconciliation    |
+| Git / GitHub    | Version control and project documentation         |
 
 ## What I Implemented
 
 ### Warehouse Modeling
 
-The project uses a dimensional modelling approach for analytical reporting.
+The project uses a dimensional modelling approach for payment transaction analytics.
 
 Implemented warehouse components include:
 
 * `dim_date` pipeline
-* `dim_merchant` pipeline
 * `dim_payment_method` pipeline
-* `dim_customer` dimension
-* `fact_payment_transaction` fact table
+* Payment transaction fact processing
+* Surrogate-key based dimensional lookups
+* Transaction-level analytical measures
+* PostgreSQL warehouse schema
 
-The fact table uses dimension keys to support analytical queries across customers, merchants, payment methods and dates.
-
----
-
-### ETL with Apache Hop
-
-Apache Hop is used as the ETL layer between the MariaDB source database and the PostgreSQL data warehouse.
-
-The ETL flow performs:
-
-```text
-Source Extraction
-       ↓
-Data Transformation
-       ↓
-Lookup / Dimension Mapping
-       ↓
-Fact and Dimension Loading
-       ↓
-PostgreSQL Data Warehouse
-```
-
-The project includes Apache Hop pipeline definitions under:
-
-```text
-hop-project/
-├── pipelines/
-└── workflows/
-```
-
-The implemented pipeline assets include:
-
-```text
-dim_date.hpl
-dim_merchant.hpl
-dim_payment_method.hpl
-```
-
-The project also documents additional pipeline and workflow components for the payment transaction processing flow.
-
----
-
-## Data Warehouse
-
-PostgreSQL is used as the analytical warehouse.
-
-The warehouse follows a star-schema style design.
+The overall warehouse design follows:
 
 ```text
                     dim_date
                        |
                        |
                        v
-dim_customer ---> fact_payment_transaction <--- dim_merchant
+dim_payment_method ---> fact_payment_transaction
                        ^
                        |
                        |
-                dim_payment_method
+                 Other Dimensions
 ```
 
-### Dimension Tables
+The fact table stores transaction-level records and connects them with the appropriate dimension attributes for analytical reporting.
 
-#### `dim_date`
+### Source-to-Warehouse ETL
 
-Stores date-related attributes used for time-based reporting and monthly transaction analysis.
+Apache Hop is used to extract payment transaction data from MariaDB, transform the source records, validate the data, and load the processed records into PostgreSQL.
 
-#### `dim_merchant`
-
-Stores merchant-related attributes used for merchant-level transaction analysis.
-
-#### `dim_payment_method`
-
-Stores payment method attributes such as method code, method group and active status.
-
-#### `dim_customer`
-
-Stores customer information used for customer-level transaction analysis.
-
----
-
-## Fact Table
-
-### `fact_payment_transaction`
-
-The fact table stores payment transaction records and analytical measures.
-
-It contains transaction information and references the related dimension records through dimension keys.
-
-The fact table supports:
-
-* Transaction count analysis
-* Payment amount analysis
-* Transaction status analysis
-* Merchant analysis
-* Payment method analysis
-* Monthly trend analysis
-
-The validated fact table contains:
+The ETL flow follows:
 
 ```text
-998 payment transactions
+MariaDB Source
+      |
+      v
+Source Extraction
+      |
+      v
+Transformation
+      |
+      v
+Data Validation
+      |
+      v
+Dimension Lookups
+      |
+      v
+PostgreSQL Warehouse
 ```
 
----
+This separates the operational source system from the analytical warehouse and provides a structured foundation for reporting.
+
+## Reliable ETL Processing
+
+The ETL process is designed around controlled source extraction and warehouse loading.
+
+The processing flow is:
+
+```text
+Source Data
+    |
+    v
+Apache Hop
+    |
+    +---- Extract
+    |
+    +---- Transform
+    |
+    +---- Validate
+    |
+    +---- Lookup
+    |
+    +---- Load
+    |
+    v
+PostgreSQL Data Warehouse
+```
+
+Apache Hop pipelines are used to make the transformation and loading process repeatable and easier to maintain.
 
 ## Data Quality and Validation
 
-Data quality checks were performed against the payment transaction fact table before using the data for analytics.
+Data quality is a core part of the project.
 
-The validation checks include:
+The payment transaction data is validated before being used for analytical reporting.
 
-* Null transaction ID validation
-* Duplicate transaction ID validation
-* Invalid transaction amount validation
-* Invalid transaction status validation
-* Customer dimension key validation
-* Merchant dimension key validation
-* Payment method dimension key validation
+Validation checks include:
+
+* Null transaction ID checks
+* Duplicate transaction ID checks
+* Invalid transaction amount checks
+* Invalid transaction status checks
+* Missing dimension-key checks
 * Transaction count reconciliation
+* Source-to-warehouse validation
 
-### Data Quality Rules
+### Transaction ID Validation
 
-#### Transaction ID
+Transaction IDs should not be NULL.
 
-Transaction IDs must not be NULL.
+Example validation:
 
-#### Duplicate Transactions
-
-Transaction IDs should not appear more than once.
-
-#### Transaction Amount
-
-Transaction amount must not be NULL or negative.
-
-#### Transaction Status
-
-Valid transaction statuses are:
-
-```text
-APPROVED
-DECLINED
-PENDING
+```sql
+SELECT COUNT(*) AS null_transaction_ids
+FROM dw.fact_payment_transaction
+WHERE transaction_id IS NULL;
 ```
 
-#### Dimension Keys
+### Duplicate Transaction Validation
 
-Fact records should contain valid:
+Duplicate transaction IDs are checked to identify potential duplicate fact records.
 
-```text
-customer_key
-merchant_key
-payment_method_key
+```sql
+SELECT
+    transaction_id,
+    COUNT(*) AS duplicate_count
+FROM dw.fact_payment_transaction
+GROUP BY transaction_id
+HAVING COUNT(*) > 1;
 ```
 
----
+### Data Quality Workflow
+
+```text
+Payment Transaction Source
+          |
+          v
+      Apache Hop
+          |
+          v
+    Data Validation
+       /       \
+      /         \
+ Valid Records   Invalid Records
+      |               |
+      v               v
+ PostgreSQL       Validation /
+ Warehouse        Reconciliation
+      |
+      v
+   Metabase
+```
 
 ## Validation Performed
 
-The final warehouse data was validated using SQL queries and Metabase analytics.
+The implementation was validated using SQL queries, ETL execution, and Metabase dashboard results.
 
-### Transaction Count
+| Test                             | Result           |
+| -------------------------------- | ---------------- |
+| Source transaction extraction    | Completed        |
+| Warehouse transaction loading    | Completed        |
+| Null transaction ID validation   | Performed        |
+| Duplicate transaction validation | Performed        |
+| Payment amount validation        | Performed        |
+| Transaction status validation    | Performed        |
+| Dimension-key validation         | Performed        |
+| Dashboard validation             | Completed        |
+| Total transaction reconciliation | 998 transactions |
 
-```text
-Total Transactions = 998
-```
+The current analytical dashboard contains:
 
-### Transaction Status Reconciliation
+**998 total transactions**
 
-| Status    | Transactions |
-| --------- | -----------: |
-| APPROVED  |          657 |
-| DECLINED  |          167 |
-| PENDING   |          174 |
-| **TOTAL** |      **998** |
+The validation process is intended to confirm that the data loaded into the analytical warehouse can be safely consumed by the reporting layer.
 
-The transaction status values reconcile with the total transaction count:
+## Business Dashboard
 
-```text
-657 + 167 + 174 = 998
-```
+A dedicated Metabase dashboard was created for payment transaction analytics.
 
-### Payment Amount
+The dashboard provides business-oriented visibility into payment activity.
 
-```text
-Total Payment Amount = 1,239,511.79
-```
-
----
-
-## Data Quality Dashboard
-
-A dedicated Metabase dashboard was created to monitor the quality of the payment transaction warehouse.
-
-### Payment Transaction Data Quality Dashboard
-
-The dashboard contains validation cards for:
+It includes metrics and visualizations such as:
 
 * Total Transactions
-* Null Transaction IDs
-* Duplicate Transaction IDs
-* Invalid Amounts
-* Invalid Status
-* Missing Customer Keys
-* Missing Merchant Keys
-* Missing Payment Method Keys
-
-The dashboard provides a quick view of whether the warehouse data is ready for analytical reporting.
-
-![Payment Transaction Data Quality Dashboard](docs/Payment%20Transaction%20Data%20Quality%20Dashboard.png)
-
----
-
-## Business Analytics Dashboard
-
-The project includes a Metabase dashboard for payment transaction analytics.
-
-### Payment Transaction Analytics Dashboard
-
-The dashboard contains:
-
-* Total Transactions
-* Approved Transactions
 * Total Payment Amount
-* Transactions by Status
-* Transactions by Payment Method
+* Transaction Status
+* Payment Method
 * Merchant Transactions
 * Monthly Transaction Trend
+* Payment transaction summaries
 
 ![Payment Transaction Analytics Dashboard](docs/Payment%20Transaction%20Analytics%20Dashboard.png)
 
----
+The dashboard provides a business-facing view of the payment transaction warehouse.
 
-## Business Metrics
+> Dashboard values are generated from project data and are intended to demonstrate the engineering and analytics workflow rather than represent real business performance.
 
-The current analytics dataset contains:
+## ETL / Data Quality Dashboard
 
-| Metric                |        Value |
-| --------------------- | -----------: |
-| Total Transactions    |          998 |
-| Approved Transactions |          657 |
-| Declined Transactions |          167 |
-| Pending Transactions  |          174 |
-| Total Payment Amount  | 1,239,511.79 |
+A separate Metabase dashboard was created to monitor payment transaction data quality.
 
----
+The dashboard is designed to expose data-quality issues and validation results.
 
-## Transaction Status Analysis
+It includes areas such as:
 
-The transaction status distribution is:
+* Total Transactions
+* Data quality checks
+* Null transaction validation
+* Duplicate transaction validation
+* Transaction validation metrics
+* Payment transaction quality indicators
+
+![Payment Transaction Data Quality Dashboard](docs/Payment%20Transaction%20Data%20Quality%20Dashboard.png)
+
+The Data Quality dashboard provides an operational view of the warehouse data before it is used for business reporting.
+
+## Apache Hop Assets
+
+Apache Hop is used as the primary ETL and transformation platform.
+
+The Hop project contains pipeline and workflow assets used to process the payment transaction data.
 
 ```text
-APPROVED  → 657
-DECLINED  → 167
-PENDING   → 174
+hop-project/
+├── pipelines/
+│   ├── dim_date.hpl
+│   ├── dim_payment_method.hpl
+│   └── ...
+│
+└── workflows/
+    └── ...
 ```
 
-This allows the business to understand successful, declined and pending payment activity.
+The pipelines cover source extraction, transformation, validation, dimension processing, and warehouse loading.
 
----
+The Hop project is maintained separately from the database and dashboard layers so that the ETL logic remains modular and reusable.
 
-## Payment Method Analysis
+## Data Warehouse
 
-The payment method transaction distribution is:
+The PostgreSQL database acts as the analytical warehouse.
 
-| Payment Method Key | Transactions |
-| -----------------: | -----------: |
-|                  2 |          156 |
-|                  3 |          167 |
-|                  4 |          163 |
-|                  5 |          162 |
-|                  6 |          159 |
-|                  7 |          191 |
-|          **Total** |      **998** |
+The warehouse separates analytical data from the MariaDB operational source system.
 
----
+The overall flow is:
 
-## Merchant Analysis
+```text
+MariaDB
+   |
+   | Source Data
+   v
+Apache Hop
+   |
+   | Transformed Data
+   v
+PostgreSQL
+   |
+   | Analytical Data
+   v
+Metabase
+```
 
-The dashboard provides transaction-level analysis by merchant.
+### Fact Table
 
-Merchant transaction analysis can be used to identify:
+`dw.fact_payment_transaction`
 
-* High transaction-volume merchants
-* Low transaction-volume merchants
-* Distribution of payment activity across merchants
+The fact table contains payment transaction-level data used for analytical reporting.
 
----
+It provides the foundation for:
 
-## Monthly Transaction Trend
+* Transaction counts
+* Payment amount analysis
+* Status analysis
+* Payment method analysis
+* Merchant analysis
+* Time-based transaction analysis
 
-The analytics dashboard provides a monthly transaction trend.
+### Dimension Tables
 
-The monthly view makes it easier to understand how payment transaction activity changes over time.
+`dw.dim_date`
 
-The visualization is grouped by month for business reporting.
+Provides date-related attributes used for time-based reporting.
 
----
+`dw.dim_payment_method`
 
-## Project Structure
+Provides payment method attributes used to categorize and analyze transactions.
+
+Additional dimensions can be added as the warehouse model is extended.
+
+## Repository Structure
 
 ```text
 payment-transaction-analytics-dq/
@@ -374,6 +342,7 @@ payment-transaction-analytics-dq/
 │   │   ├── payment_methods.csv
 │   │   ├── payment_transactions.csv
 │   │   └── refunds.csv
+│   │
 │   └── README.md
 │
 ├── docs/
@@ -383,19 +352,11 @@ payment-transaction-analytics-dq/
 │   └── Payment Transaction Data Quality Dashboard.png
 │
 ├── drivers/
-│   ├── postgresql-42.7.11.jar
 │   └── README.md
 │
 ├── hop-project/
 │   ├── pipelines/
-│   │   ├── BUILD_THESE_IN_HOP.txt
-│   │   ├── dim_date.hpl
-│   │   ├── dim_merchant.hpl
-│   │   └── dim_payment_method.hpl
-│   │
 │   ├── workflows/
-│   │   └── BUILD_THESE_IN_HOP.txt
-│   │
 │   └── README.md
 │
 ├── scripts/
@@ -409,9 +370,7 @@ payment-transaction-analytics-dq/
 │   │   └── 01-source-schema.sql
 │   │
 │   └── postgres/
-│       ├── 00-create-bi-role.sh
-│       ├── 01-warehouse-schema.sql
-│       └── 99-grant-bi-role.sh
+│       └── 01-warehouse-schema.sql
 │
 ├── superset/
 │   └── Dockerfile
@@ -422,8 +381,6 @@ payment-transaction-analytics-dq/
 └── README.md
 ```
 
----
-
 ## Run Locally
 
 ### Clone the Repository
@@ -432,13 +389,13 @@ payment-transaction-analytics-dq/
 git clone https://github.com/kanimozhijayakumar/payment-transaction-analytics-dq.git
 ```
 
-### Enter the Project
+### Navigate to the Project
 
 ```bash
 cd payment-transaction-analytics-dq
 ```
 
-### Start Docker Services
+### Start the Docker Environment
 
 ```bash
 docker compose up -d
@@ -447,170 +404,94 @@ docker compose up -d
 ### Check Running Containers
 
 ```bash
-docker ps
+docker compose ps
 ```
 
----
+The project uses Docker to provide a consistent local environment for the database and analytics services.
 
 ## Local Services
 
-| Service        | Port |
-| -------------- | ---: |
-| Apache Hop Web | 8080 |
-| Metabase       | 3000 |
-| PostgreSQL     | 5433 |
-| MariaDB        | 3307 |
-| MinIO          | 9000 |
-| MinIO Console  | 9001 |
-
----
-
-## Analytics Access
+| Service    | Purpose                               |
+| ---------- | ------------------------------------- |
+| MariaDB    | Source transaction database           |
+| PostgreSQL | Analytical data warehouse             |
+| Apache Hop | ETL and transformation                |
+| Metabase   | Analytics and data-quality dashboards |
+| Docker     | Containerized service environment     |
 
 ### Metabase
+
+Metabase is used as the business intelligence layer.
+
+Default local URL:
 
 ```text
 http://localhost:3000
 ```
 
-The Metabase instance is used to connect to the PostgreSQL warehouse and create analytics dashboards.
+The Metabase dashboards provide both business analytics and data-quality monitoring.
 
-### Apache Hop
+## End-to-End Processing Flow
 
-```text
-http://localhost:8080
-```
-
-Apache Hop is used for ETL pipeline development and execution.
-
----
-
-## Validation Workflow
-
-The project follows this validation flow:
+The complete project workflow is:
 
 ```text
-MariaDB Source
-      |
-      v
-Apache Hop ETL
-      |
-      v
-PostgreSQL Warehouse
-      |
-      v
-Data Quality Validation
-      |
-      +---- Null Checks
-      |
-      +---- Duplicate Checks
-      |
-      +---- Amount Validation
-      |
-      +---- Status Validation
-      |
-      +---- Dimension Key Validation
-      |
-      v
-Metabase Analytics
-```
+                    PAYMENT TRANSACTION DATA PLATFORM
 
----
+                         MariaDB
+                     Source Database
+                           |
+                           |
+                           v
+                    Apache Hop ETL
+                           |
+             +-------------+-------------+
+             |                           |
+             v                           v
+       Transformation              Data Validation
+             |                           |
+             |                           |
+             +-------------+-------------+
+                           |
+                           v
+                 PostgreSQL Warehouse
+                           |
+                           |
+             +-------------+-------------+
+             |                           |
+             v                           v
+       Business Analytics          Data Quality
+             |                           |
+             v                           v
+         Metabase                   Metabase
+         Dashboard                 Dashboard
+```
 
 ## Project Results
 
 The completed project demonstrates:
 
-* Source-to-warehouse ETL
-* Dimensional data modelling
-* Fact and dimension design
-* Payment transaction analytics
+* End-to-end source-to-warehouse ETL
+* MariaDB source integration
+* PostgreSQL analytical warehouse
+* Apache Hop pipeline development
+* Dimensional modelling
+* Fact and dimension table design
 * Data quality validation
-* SQL-based reconciliation
-* Business dashboard development
-* Containerized development environment
-* Git-based version control
-* GitHub project hosting
+* SQL reconciliation
+* Payment transaction analytics
+* Metabase dashboard development
+* Docker-based local environment
+* Python-based data generation
+* GitHub-based project documentation
 
-The final analytics dataset contains:
-
-```text
-998 transactions
-```
-
-with:
+The current analytical dataset contains:
 
 ```text
-657 Approved
-167 Declined
-174 Pending
+998 payment transactions
 ```
 
-and:
-
-```text
-1,239,511.79
-```
-
-in total payment amount.
-
----
-
-## GitHub Repository
-
-The complete source code and project files are available in the GitHub repository.
-
-**Repository:** [payment-transaction-analytics-dq](./)
-
----
-
-## Skills Demonstrated
-
-`Data Engineering` · `ETL/ELT` · `Apache Hop` · `PostgreSQL` · `MariaDB` · `Docker` · `Metabase` · `SQL` · `Data Warehousing` · `Dimensional Modeling` · `Fact Tables` · `Dimension Tables` · `Data Quality` · `Data Validation` · `Python` · `Git` · `GitHub`
-
----
-
-## Future Enhancements
-
-The project can be extended with:
-
-* Automated data-quality workflows
-* Incremental watermark-based loading
-* ETL audit logging
-* Data-quality quarantine tables
-* Automated failure handling
-* Scheduled ETL execution
-* Advanced dashboard filtering
-* Additional business KPIs
-* Pipeline monitoring
-* Automated testing
-* Cloud deployment
-
----
-
-## Documentation
-
-Project documentation is maintained inside the `docs/` directory.
-
-Additional SQL validation scripts are available under:
-
-```text
-scripts/
-```
-
-Database schema scripts are available under:
-
-```text
-sql/
-```
-
-Apache Hop assets are available under:
-
-```text
-hop-project/
-```
-
----
+The data is processed from the source database through Apache Hop and made available in PostgreSQL for analytical consumption.
 
 ## Security
 
@@ -625,10 +506,74 @@ Before sharing or deploying the project, review:
 * Environment variables
 * Local configuration
 * Connection credentials
+* Docker environment settings
 
----
+Example credentials used for local development should always be replaced before deployment.
+
+## Skills Demonstrated
+
+`Data Engineering` · `ETL/ELT` · `Apache Hop` · `PostgreSQL` · `MariaDB` · `Docker` · `Metabase` · `Dimensional Modeling` · `Fact Tables` · `Dimension Tables` · `Data Quality` · `Data Validation` · `SQL` · `Python` · `Git` · `GitHub`
+
+## Next Extensions
+
+Possible future extensions for the platform include:
+
+* Automated ETL workflow orchestration
+* ETL audit logging
+* Automated data-quality quarantine
+* Incremental transaction loading
+* Watermark-based processing
+* Automated failure handling
+* Scheduled ETL execution
+* Additional business KPIs
+* Pipeline monitoring
+* Automated data-quality tests
+* Larger-scale transaction testing
+* Cloud deployment
+
+These are intentionally presented as **next steps**, not as completed functionality.
+
+## Documentation
+
+Additional project documentation is available in the `docs/` directory.
+
+Useful project resources include:
+
+* [MacBook Top-Level Guide](docs/MACBOOK_TOP_LEVEL_GUIDE.md)
+* [Datasets Documentation](datasets/README.md)
+* [Apache Hop Documentation](hop-project/README.md)
+* [Driver Documentation](drivers/README.md)
+* SQL validation scripts under `scripts/`
+* Database schema scripts under `sql/`
+
 ## License
 
-MIT License.
+MIT — see [LICENSE](LICENSE).
 
-See the `LICENSE` file for details.
+````
+
+### One important thing
+
+Your **three images are already in `docs/`**, based on the GitHub structure you showed:
+
+```text
+docs/
+├── architecture.png
+├── Payment Transaction Analytics Dashboard.png
+└── Payment Transaction Data Quality Dashboard.png
+````
+
+So these three Markdown lines are the important ones:
+
+```markdown
+![Payment Transaction Analytics Platform Architecture](docs/architecture.png)
+```
+
+```markdown
+![Payment Transaction Analytics Dashboard](docs/Payment%20Transaction%20Analytics%20Dashboard.png)
+```
+
+```markdown
+![Payment Transaction Data Quality Dashboard](docs/Payment%20Transaction%20Data%20Quality%20Dashboard.png)
+```
+
