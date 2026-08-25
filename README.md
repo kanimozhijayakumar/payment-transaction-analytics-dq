@@ -636,21 +636,4 @@ See the `LICENSE` file for details.
 
 ````
 
-### One important thing
 
-Before clicking **Commit changes**, make sure the top of your GitHub editor starts directly with:
-
-```markdown
-# Payment Transaction Analytics & Data Quality Platform
-````
-
-and **NOT** with:
-
-````markdown
-```markdown
-# Payment Transaction Analytics & Data Quality Platform
-````
-
-That was the formatting issue in your uploaded file. 
-
-After you paste this full README, click **Commit changes**. Then open the repository main page and check whether the **Architecture, Analytics Dashboard, and DQ Dashboard images** render correctly.
