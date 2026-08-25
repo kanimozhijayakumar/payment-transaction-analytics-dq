@@ -1,8 +1,4 @@
-Sure 👍 Below is the **complete `README.md`**, cleaned so you can **copy everything inside the code block and paste directly into GitHub → README.md**.
 
-I also fixed the screenshot paths and removed the accidental outer Markdown code fence around the whole README. The content is based on your uploaded README. 
-
-````markdown
 # Payment Transaction Analytics & Data Quality Platform
 
 A containerized end-to-end data engineering project that implements a payment transaction analytics platform using **MariaDB, Apache Hop, PostgreSQL, Docker, and Metabase**.
@@ -16,7 +12,7 @@ The project demonstrates source-to-warehouse ETL, dimensional modelling, fact an
 ![Payment Transaction Analytics Platform Architecture](docs/architecture.png)
 
 The platform follows this end-to-end data flow:
-
+````markdown
 ```text
 MariaDB / Source Database
         |
