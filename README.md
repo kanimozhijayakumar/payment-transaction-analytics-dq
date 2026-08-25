@@ -1,3 +1,8 @@
+Sure 👍 Below is the **complete `README.md`**, cleaned so you can **copy everything inside the code block and paste directly into GitHub → README.md**.
+
+I also fixed the screenshot paths and removed the accidental outer Markdown code fence around the whole README. The content is based on your uploaded README. 
+
+````markdown
 # Payment Transaction Analytics & Data Quality Platform
 
 A containerized end-to-end data engineering project that implements a payment transaction analytics platform using **MariaDB, Apache Hop, PostgreSQL, Docker, and Metabase**.
@@ -5,40 +10,29 @@ A containerized end-to-end data engineering project that implements a payment tr
 The project demonstrates source-to-warehouse ETL, dimensional modelling, fact and dimension tables, data quality validation, and business analytics through an interactive dashboard.
 
 ---
-````markdown
 
 ## Architecture
 
 ![Payment Transaction Analytics Platform Architecture](docs/architecture.png)
 
+The platform follows this end-to-end data flow:
 
-                    Payment Transaction Analytics Platform
-
-  MariaDB / Source Database
-       payment data
-             |
-             |
-             v
-       Apache Hop
-   ETL + Transformation
-             |
-             |
-             v
-   PostgreSQL Data Warehouse
-   --------------------------
-   dim_date
-   dim_merchant
-   dim_payment_method
-   dim_customer
-   fact_payment_transaction
-   --------------------------
-             |
-             v
-      Data Quality Checks
-             |
-             v
-          Metabase
-     Analytics Dashboard
+```text
+MariaDB / Source Database
+        |
+        v
+   Apache Hop
+ ETL + Transformation
+        |
+        v
+PostgreSQL Data Warehouse
+        |
+        v
+ Data Quality Validation
+        |
+        v
+     Metabase
+Analytics Dashboard
 ````
 
 ---
@@ -111,7 +105,7 @@ dim_merchant.hpl
 dim_payment_method.hpl
 ```
 
-and the project also documents additional pipeline/workflow components for the payment transaction processing flow.
+The project also documents additional pipeline and workflow components for the payment transaction processing flow.
 
 ---
 
@@ -283,6 +277,8 @@ The dashboard provides a quick view of whether the warehouse data is ready for a
 
 ![Payment Transaction Data Quality Dashboard](docs/Payment%20Transaction%20Data%20Quality%20Dashboard.png)
 
+---
+
 ## Business Analytics Dashboard
 
 The project includes a Metabase dashboard for payment transaction analytics.
@@ -299,7 +295,7 @@ The dashboard contains:
 * Merchant Transactions
 * Monthly Transaction Trend
 
-![Payment Transaction Analytics Dashboard](docs/screenshots/payment-transaction-analytics-dashboard.png)
+![Payment Transaction Analytics Dashboard](docs/Payment%20Transaction%20Analytics%20Dashboard.png)
 
 ---
 
@@ -385,7 +381,10 @@ payment-transaction-analytics-dq/
 │   └── README.md
 │
 ├── docs/
-│   └── MACBOOK_TOP_LEVEL_GUIDE.md
+│   ├── MACBOOK_TOP_LEVEL_GUIDE.md
+│   ├── architecture.png
+│   ├── Payment Transaction Analytics Dashboard.png
+│   └── Payment Transaction Data Quality Dashboard.png
 │
 ├── drivers/
 │   ├── postgresql-42.7.11.jar
@@ -563,11 +562,9 @@ in total payment amount.
 
 ## GitHub Repository
 
-The complete source code and project files are available in GitHub.
+The complete source code and project files are available in the GitHub repository.
 
-**Repository:**
-
-[https://github.com/kanimozhijayakumar/payment-transaction-analytics-dq](https://github.com/kanimozhijayakumar/payment-transaction-analytics-dq)
+**Repository:** [payment-transaction-analytics-dq](./)
 
 ---
 
@@ -641,5 +638,23 @@ MIT License.
 
 See the `LICENSE` file for details.
 
-```
-```
+````
+
+### One important thing
+
+Before clicking **Commit changes**, make sure the top of your GitHub editor starts directly with:
+
+```markdown
+# Payment Transaction Analytics & Data Quality Platform
+````
+
+and **NOT** with:
+
+````markdown
+```markdown
+# Payment Transaction Analytics & Data Quality Platform
+````
+
+That was the formatting issue in your uploaded file. 
+
+After you paste this full README, click **Commit changes**. Then open the repository main page and check whether the **Architecture, Analytics Dashboard, and DQ Dashboard images** render correctly.
