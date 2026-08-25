@@ -14,7 +14,7 @@ The platform follows this end-to-end data flow:
 
 ````markdown
 
-```text
+
                   Payment Transaction Analytics Platform
 
  MariaDB / Source Database
@@ -554,8 +554,4 @@ MIT — see [LICENSE](LICENSE).
 
 ````
 
-```text
-
-![Payment Transaction Data Quality Dashboard](docs/Payment%20Transaction%20Data%20Quality%20Dashboard.png)
-```
 
