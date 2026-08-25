@@ -9,7 +9,7 @@ The project demonstrates source-to-warehouse ETL, dimensional modelling, fact an
 
 ## Architecture
 
-![Payment Transaction Analytics Platform Architecture](docs/images/architecture.png)
+![Payment Transaction Analytics Platform Architecture](docs/architecture.png)
 
 ```text
                     Payment Transaction Analytics Platform
@@ -281,9 +281,7 @@ The dashboard contains validation cards for:
 
 The dashboard provides a quick view of whether the warehouse data is ready for analytical reporting.
 
-![Payment Transaction Data Quality Dashboard](docs/screenshots/data-quality-dashboard.png)
-
----
+![Payment Transaction Data Quality Dashboard](docs/Payment%20Transaction%20Data%20Quality%20Dashboard.png)
 
 ## Business Analytics Dashboard
 
